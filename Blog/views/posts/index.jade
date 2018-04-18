@@ -1,0 +1,29 @@
+﻿extends ../layout
+
+block content
+	.panel.panel-default
+		.panel-heading افزودن نوشته
+		.panel-body
+			form(action="/post" method="post")
+				.form-group
+					label دسته
+					select(name="category" class="form-control")
+						each cat in cats
+							option(value=cat._id)= cat.title
+				.form-group		
+					label عنوان
+					input(type="text" name="title" class="form-control")
+				.form-group		
+					label متن
+					textarea(name="text" class="form-control" rows="5")
+				.form-group
+					input(type="submit" value="ذخیره" class="btn btn-primary")
+	hr
+	.row
+		.col-md-12
+			each post in posts
+				h4= post.title
+				p= post.category.title
+				p #{moment(post.date).locale('fa').format('jYYYY/jM/jD HH:mm:ss')}
+				p= post.text
+				hr

@@ -1,0 +1,15 @@
+﻿extends layout
+
+block content
+	h3 افزودن دسته
+	form(action="/category" method="post")
+		p عنوان دسته
+		input(type="text" name="title" class="form-control")
+		br
+		input(type="submit" value="ذخیره" class="btn btn-primary")
+	hr
+	.row
+		.col-md-12
+			each cat in cats
+				p= cat.title
+				hr

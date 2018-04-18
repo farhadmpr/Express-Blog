@@ -1,0 +1,15 @@
+﻿extends layout
+
+block content
+	.jumbotron
+		h1= title
+		p به #{title} خوش آمدید
+	h3 آخرین نوشته ها
+	.row
+		.col-md-12
+			each post in posts
+				h4= post.title
+				p= post.category.title
+				p #{moment(post.date).locale('fa').format('jYYYY/jM/jD HH:mm:ss')}
+				p= post.text
+				hr

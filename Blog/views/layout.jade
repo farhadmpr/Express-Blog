@@ -1,0 +1,28 @@
+﻿doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap-rtl.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		.navbar.navbar-default
+			.container
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#') وبلاگ
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li
+							a(href='#') خانه
+						li
+							a(href='#') درباره ما
+						li
+							a(href='#') تماس با ما
+		.container.body-content
+			block content
+		script(src='/javascripts/jquery-1.10.2.min.js')
+		script(src='/javascripts/bootstrap.min.js')
