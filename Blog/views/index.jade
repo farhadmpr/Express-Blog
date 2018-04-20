@@ -4,12 +4,17 @@ block content
 	.jumbotron
 		h1= title
 		p به #{title} خوش آمدید
+	.row
+		.col-md-12    
+			form(action="" method="get" class="form-inline")
+				input(type="text" name="search" class="form-control")
+				input(type="submit" value="جستجو" class="btn btn-primary")
 	h3 آخرین نوشته ها
 	.row
 		.col-md-12
 			each post in posts
 				h4= post.title
-				p= post.category.title
-				p #{moment(post.date).locale('fa').format('jYYYY/jM/jD HH:mm:ss')}
+				span(class="label label-primary")= post.category.title
+				p #{moment(post.date).locale('fa').format('YYYY/MM/DD HH:mm:ss')}
 				p= post.text
 				hr

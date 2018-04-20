@@ -6,29 +6,21 @@ var moment = require('jalali-moment');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-	Post.find(function (err, posts) {
-		res.render('index', {
-			moment: moment,
-			title: 'وبلاگ', 
-			posts: posts
-		});
-	});
-});
+    let search = {};
 
-// POST
-router.post('/', function (req, res) {
-	if (!req.body.title || !req.body.text) {
-		return res.redirect('/');
-	}
-	var post = new Post({
-		title: req.body.title,
-		text: req.body.text,
-		date: (new Date()),
-		category: req.body.category
-	});
-	post.save(function (err) {
-		res.redirect('/');
-	});
+    if (req.query.search) {
+        search = { title: { $regex: '.*' + req.query.search + '.*' } }
+    }
+
+    Post.find(search)
+        .populate('category')
+        .exec(function (err, posts) {
+            res.render('index', {
+                moment: moment,
+                title: 'وبلاگ',
+                posts: posts
+            });
+        })
 });
 
 module.exports = router;
