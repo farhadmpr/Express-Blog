@@ -23,6 +23,11 @@ html
 						li
 							a(href='/contact') تماس با ما
 		.container.body-content
+			if user
+				div.row
+					div.col-md-12
+						p #{user.email}. خوش اومدی
+						a(href='/signout') خروج
 			block content
 		script(src='/javascripts/jquery-1.10.2.min.js')
 		script(src='/javascripts/bootstrap.min.js')

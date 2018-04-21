@@ -32,8 +32,15 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="models\category.js" />
+    <Compile Include="passport\init.js" />
+    <Compile Include="passport\signup.js" />
+    <Compile Include="passport\login.js" />
     <Compile Include="models\post.js" />
+    <Compile Include="models\user.js" />
     <Compile Include="routes\category.js" />
+    <Compile Include="routes\signup.js" />
+    <Compile Include="routes\signout.js" />
+    <Compile Include="routes\login.js" />
     <Compile Include="routes\post.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
@@ -52,6 +59,7 @@
     <Content Include="public\fonts\Yekan.eot" />
     <Content Include="public\fonts\Yekan.ttf" />
     <Content Include="public\fonts\Yekan.woff" />
+    <Content Include="public\images\login-icon.png" />
     <Content Include="public\stylesheets\bootstrap-rtl.min.css" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
     <Content Include="package.json" />
@@ -61,17 +69,20 @@
     <Content Include="views\category.jade" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
+    <Content Include="views\login.jade" />
     <Content Include="views\posts\index.jade" />
+    <Content Include="views\signup.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="models\" />
+    <Folder Include="passport\" />
     <Folder Include="obj\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="public\" />
-    <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\fonts\" />
+    <Folder Include="public\images\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />

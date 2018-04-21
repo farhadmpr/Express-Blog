@@ -2,8 +2,18 @@
 var router = express.Router();
 var Category = require('../models/category');
 
+var isAuthenticated = function (req, res, next) {
+	// if user is authenticated in the session, call the next() to call the next request handler 
+	// Passport adds this method to request object. A middleware is allowed to add properties to
+	// request and response objects
+	if (req.isAuthenticated())
+		return next();
+	// if the user is not authenticated then redirect him to the login page
+	res.redirect('/login');
+}
+
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', isAuthenticated, function (req, res) {
 	Category.find(function (err, cats) {
 		res.render('category', {
 			cats: cats
@@ -12,7 +22,7 @@ router.get('/', function (req, res) {
 });
 
 // POST
-router.post('/', function (req, res) {
+router.post('/', isAuthenticated, function (req, res) {
 	if (!req.body.title) {
 		return res.redirect('/category');
 	}

@@ -6,7 +6,7 @@ var moment = require('jalali-moment');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    let search = {};
+    var search = {};
 
     if (req.query.search) {
         search = { title: { $regex: '.*' + req.query.search + '.*' } }
