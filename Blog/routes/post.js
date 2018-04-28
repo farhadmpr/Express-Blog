@@ -44,4 +44,11 @@ router.post('/', isAuthenticated, function (req, res) {
 	});
 });
 
+router.get('/delete/:id', isAuthenticated, function (req, res) {
+	Post.findByIdAndRemove(req.params.id, (err, post) => {
+		if (err) return res.status(500).send(err);
+		res.redirect('/post');
+	});
+});
+
 module.exports = router;
