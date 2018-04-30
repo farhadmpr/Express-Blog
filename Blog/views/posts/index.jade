@@ -27,5 +27,7 @@ block content
 				p #{moment(post.date).locale('fa').format('jYYYY/jM/jD HH:mm:ss')}
 				p= post.text
 				div
-					a(href="delete/"+post._id) حذف
+					a(href="post/delete/"+post._id) حذف
+					|  | 
+					a(href="post/edit/"+post._id) ویرایش
 				hr

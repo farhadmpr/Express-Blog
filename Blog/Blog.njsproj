@@ -78,6 +78,7 @@
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\login.jade" />
+    <Content Include="views\posts\edit.jade" />
     <Content Include="views\posts\index.jade" />
     <Content Include="views\signup.jade" />
     <Content Include="VisualStudio.gitignore" />

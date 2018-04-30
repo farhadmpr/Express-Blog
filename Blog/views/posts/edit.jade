@@ -1,0 +1,22 @@
+﻿extends ../layout
+
+block content
+	.panel.panel-default
+		.panel-heading افزودن نوشته
+		.panel-body
+			form(action="/post/edit" method="post")
+				input(type="hidden" name="id" value="#{post._id}")
+				.form-group
+					label دسته
+					select(name="category" class="form-control")
+						each cat in cats
+							option(value=cat._id selected=cat._id.toString() == post.category._id.toString() )= cat.title
+				.form-group		
+					label عنوان
+					input(type="text" name="title" class="form-control" value=post.title)
+				.form-group		
+					label متن
+					textarea(name="text" class="form-control" rows="5")
+						| #{post.text}
+				.form-group
+					input(type="submit" value="ذخیره" class="btn btn-primary")
